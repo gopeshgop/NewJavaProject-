@@ -11,10 +11,10 @@ Scanner sc = new Scanner(System.in);
 		//pm.primeNumberCheck();
 		//ChocolateBox cb = new ChocolateBox();
 		//cb.addToBox();
-		//UserNameCheck user = new UserNameCheck();
-		//user.checkCredential();
-		Calculator calc = new Calculator();
-		calc.calculator();
+		UserNameCheck user = new UserNameCheck();
+		user.checkCredential();
+		/*Calculator calc = new Calculator();
+		calc.calculator();*/
 		
 	}
 
