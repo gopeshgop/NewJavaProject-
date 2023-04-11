@@ -1,4 +1,4 @@
-package Arithmaticoperations;
+package arithmaticOperations;
 
 public class Operations {
 	

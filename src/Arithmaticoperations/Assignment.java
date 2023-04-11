@@ -1,4 +1,4 @@
-package Arithmaticoperations;
+package arithmaticOperations;
 
 public class Assignment {
 	int a=10,b=3;
