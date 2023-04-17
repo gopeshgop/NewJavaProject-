@@ -1,4 +1,4 @@
-package assignmntApril15;
+package assignmntApril15PhoneBuy;
 import java.util.Scanner;
 public class PhoneBuy {
 	Scanner sc = new Scanner(System.in);

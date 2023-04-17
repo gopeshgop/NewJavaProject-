@@ -1,4 +1,4 @@
-package assignmntApril15;
+package assignmntApril15PhoneBuy;
 
 public class PhoneBuyMain {
 
