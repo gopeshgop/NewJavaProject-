@@ -6,9 +6,9 @@ public class NameSelectGame {
 
 	
 	
-	String[] nameList = { "Aleena", "Angel", "Asha", "Clemin", "Gopesh", "Hamneet", "Jimna", "Jobin", "Jude",
-			"Kamaldeep", "Manpreetk", "Manpreets", "Mariya", "Namitha", "Neelam", "Nisha", "Parminder", "Rajat", "Rojy",
-			"Sojan", "Suchitra", "Vindhuja" };
+	String[] nameList = { "aleena", "angel", "asha", "clemin", "gopesh", "hamneet", "jimna", "jobin", "jude",
+			"kamaldeep", "manpreetk", "manpreets", "mariya", "namitha", "neelam", "nisha", "parminder", "rajat", "rojy",
+			"sojan", "suchitra", "vindhuja" };
 
 	Random random = new Random();
 
