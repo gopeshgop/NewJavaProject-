@@ -35,6 +35,7 @@ public class NameSelectGame {
 		
 		char[] charArrayRandomNameCopy = new char[charArrayRandomName.length];
 		
+		
 		for(int i=0;i<charArrayRandomName.length;i++) {
 			
 			charArrayRandomNameCopy[i]= '-';
