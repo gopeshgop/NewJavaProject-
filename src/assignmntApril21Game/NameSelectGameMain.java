@@ -3,37 +3,40 @@ import java.util.Scanner;
 import java.util.Arrays;
 public class NameSelectGameMain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
-		Scanner sc = new Scanner(System.in);
+		
+		
 		NameSelectGame nameSelectGame = new NameSelectGame();
-		char toCheck; int wrongInputCount=0;
+		char charectorToCheck; int wrongInputCount=0;
 		String randomName = nameSelectGame.randomSelect();
 		
-		char[]charArrayRandomName = nameSelectGame.convertrandomNameToArray(randomName);
+		char[]arrayCreatedFromString = nameSelectGame.convertrandomNameToArray(randomName);
 		
-		char[] charArrayRandomNameCopy=nameSelectGame.initializeCopyArray(charArrayRandomName);
+		char[] maskedArray=nameSelectGame.initializeCopyArray(arrayCreatedFromString);
+		
 		System.out.println("Here is a name to guess");
-		System.out.println(charArrayRandomNameCopy);
-		while(wrongInputCount<5) {
+		System.out.println(maskedArray);
+		Scanner sc = new Scanner(System.in);
+		while(wrongInputCount<5){
 			
 			System.out.println("Enter a guess letter ");
 			System.out.println("You have "+(5-wrongInputCount)+" chance ");
-			toCheck = sc.next().charAt(0);
+			charectorToCheck = sc.next().charAt(0);
 			
-			char[]testCharArrayRansomNameCopy = Arrays.copyOf(charArrayRandomNameCopy, charArrayRandomNameCopy.length);
+			char[]arrayToCheckWithMaskedArray = Arrays.copyOf(maskedArray, maskedArray.length);
 			
-			charArrayRandomNameCopy=
-					nameSelectGame.checkForTheLetterInName(charArrayRandomName, charArrayRandomNameCopy, toCheck);
-			int checkArraysEqualOrNot=Arrays.compare(testCharArrayRansomNameCopy,charArrayRandomNameCopy);
-			int breakWhileLoop=Arrays.compare(charArrayRandomNameCopy,charArrayRandomName);
+			maskedArray=
+					nameSelectGame.checkForTheLetterInName(arrayCreatedFromString, maskedArray, charectorToCheck);
+			int checkArraysEqualOrNot=Arrays.compare(arrayToCheckWithMaskedArray,maskedArray);
+			int breakWhileLoop=Arrays.compare(maskedArray,arrayCreatedFromString);
 			
 			if(checkArraysEqualOrNot==0) {
 				wrongInputCount++;
 			}
 			
-			for(int i=0;i<charArrayRandomName.length;i++) {
-				System.out.print(charArrayRandomNameCopy[i]);
+			for(int i=0;i<arrayCreatedFromString.length;i++) {
+				System.out.print(maskedArray[i]);
 			}
 			
 		
@@ -43,7 +46,8 @@ public class NameSelectGameMain {
 				break;
 			}
 			
-		}
+		}sc.close();
+
 		if(wrongInputCount==5) {
 			System.out.println("\nYou have entered wrong input 5 times...You lost ..Game over");
 		}	
