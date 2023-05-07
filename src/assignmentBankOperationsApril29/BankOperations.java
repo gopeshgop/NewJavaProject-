@@ -1,33 +1,56 @@
 package assignmentBankOperationsApril29;
 
-public class BankOperations {
-	private double accountBalanceRecievedFromCustomer=0;
-	double withdrawnAmount;
-	double depositAmount;
+import java.util.Scanner;
+
+public abstract class BankOperations {
+	private double accountBalance = 0;
+	private double withdrawAmount = 0;
+	private double depositAmount = 0;
+	private String newPin="";
+
+	Scanner sc = new Scanner(System.in);
 	
+	abstract void changePinPassword();
+
+	void withdrawOrTransfer() {
+
+		System.out.println("Enter the amount to withdraw");
+		int dailyLimit = 2000;
+		withdrawAmount = sc.nextDouble();
+
+		if (accountBalance > withdrawAmount || withdrawAmount < dailyLimit) {
+			accountBalance -= withdrawAmount;
+		} else {
+			System.out.println("You dont have enough balance or enter a lesser amount");
+		}
+		
 	
-	void withdraw(double withdrawAmount) {
-		accountBalanceRecievedFromCustomer-=withdrawAmount;
+
+	}
+
+	void depositOrRecieve() {
+
+		System.out.println("Enter the amount to deposit");
+		depositAmount = sc.nextDouble();
+		accountBalance += depositAmount;
+		
+	}
+
+	double getAccountBalance() {
+		return accountBalance;
+	}
+	
+	String getNewPinPassword() {
+		return newPin;
 	}
 	
 
-	void deposit(double depositAmount) {
-		accountBalanceRecievedFromCustomer+=depositAmount;
+	public BankOperations(double accountBalance) {
+		this.accountBalance = accountBalance;
 		
+
 	}
-	
-	double viewBalance() {
-		return accountBalanceRecievedFromCustomer;
-	}
-	
-	public BankOperations(String operationToPerform, double accountBalance, double amountEnteredByUser ) {
-		accountBalanceRecievedFromCustomer=accountBalance;
-		if(operationToPerform.equalsIgnoreCase("Withdraw")||operationToPerform.equalsIgnoreCase("Send")) {
-			withdrawnAmount=amountEnteredByUser;
-		}else if(operationToPerform.equalsIgnoreCase("Deposit")||operationToPerform.equalsIgnoreCase("Recieve")) {
-			depositAmount=amountEnteredByUser;
-		}else {
-			System.out.println("Wrong entry");
-		}
+	public BankOperations() {
+		
 	}
 }

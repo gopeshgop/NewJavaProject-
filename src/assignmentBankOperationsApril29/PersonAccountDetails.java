@@ -1,33 +1,52 @@
 package assignmentBankOperationsApril29;
 
 public class PersonAccountDetails {
-	
-	private String bankAccountNumber="100000110";
-	private String nameOfTheAccountHolder="Gopesh";
-	private double totalFundsAvailable=20000;
-	private int actualPin=2341;
-	private String actualOnlineBankingPassword="Get@1";
-	
-	
-	double getThePinToCheck(int pinEnteredByUser) {
-		if(actualPin==pinEnteredByUser) {
+
+	private String bankAccountNumber;
+	private String nameOfTheAccountHolder;
+	private double totalFundsAvailable;
+	private String actualPin;
+	private String actualOnlineBankingPassword;
+
+	PersonAccountDetails(String bankAccountNumber, String nameOfTheAccountHolder, double totalFundsAvailable,
+			String actualPin, String actualOnlineBankingPassword) {
+		this.bankAccountNumber = bankAccountNumber;
+		this.nameOfTheAccountHolder = nameOfTheAccountHolder;
+		this.totalFundsAvailable = totalFundsAvailable;
+		this.actualPin = actualPin;
+		this.actualOnlineBankingPassword = actualOnlineBankingPassword;
+	}
+
+	double atmPinCheck(String pinEnteredByUser) {
+		if (actualPin.equals(pinEnteredByUser)) {
 			return totalFundsAvailable;
-		}else {
+		} else {
+			System.out.println("Wrong PIN");
 			return 0;
 		}
 	}
-	
-	double getTheOnlineBankingPasswordToCheck(String passwordEnteredByTheUser) {
-		if(actualOnlineBankingPassword.equals(passwordEnteredByTheUser)) {
+
+	double onlineBankingPasswordCheck(String passwordEnteredByTheUser) {
+		if(actualOnlineBankingPassword.equals(passwordEnteredByTheUser)){
 			return totalFundsAvailable;
 		}else {
+			System.out.println("Wrong password");
 			return 0;
 		}
 	}
-	void getTotalFundAvailable(double accountBalance) {
-		totalFundsAvailable=accountBalance;
+
+	void setTotalFundAvailable(double accountBalance) {
+		totalFundsAvailable = accountBalance;
 	}
-	double setTotalFundAvailable() {
+
+	double getTotalFundAvailable() {
 		return totalFundsAvailable;
+	}
+	
+	void setNewPin(String newPin) {
+		actualPin=newPin;
+	}
+	void setNewPassword(String newPassword) {
+		actualOnlineBankingPassword=newPassword;
 	}
 }
